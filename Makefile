@@ -1,3 +1,5 @@
+.PHONY: all pdfs pngs
+
 all: pdfs pngs
 
 pdfs: $(addsuffix .pdf, $(basename $(wildcard *.tex)))
