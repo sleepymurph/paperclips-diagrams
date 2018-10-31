@@ -1,9 +1,10 @@
 .PHONY: all pdfs pngs
 
-all: pdfs pngs
+all: pdfs pngs pngs_alpha
 
 pdfs: $(addsuffix .pdf, $(basename $(wildcard *.tex *.dot)))
 pngs: $(addsuffix .png, $(basename $(wildcard *.tex *.dot)))
+pngs_alpha: $(addsuffix .alpha.png, $(basename $(wildcard *.tex *.dot)))
 
 %.pdf: %.tex
 	pdflatex $^
@@ -59,3 +60,8 @@ pngs: $(addsuffix .png, $(basename $(wildcard *.tex *.dot)))
 	# Conversion from PDF may be disabled by your distro.
 	# If you receive "not authorized" errors, see the longer comment in the Makefile.
 	convert -density 125 -alpha remove $^ $@
+
+%.alpha.png: %.png
+	# Conversion from PDF may be disabled by your distro.
+	# If you receive "not authorized" errors, see the longer comment in the Makefile.
+	convert -fuzz 10% -transparent white $^ $@
