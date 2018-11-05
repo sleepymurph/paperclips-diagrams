@@ -1,4 +1,4 @@
-.PHONY: all pdfs pngs
+.PHONY: all pdfs pngs pngs_alpha
 
 all: pdfs pngs pngs_alpha
 
