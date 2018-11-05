@@ -56,12 +56,9 @@ pngs_alpha: $(addsuffix .alpha.png, $(basename $(wildcard *.tex *.dot)))
 # - Commit that adds the patch file to Ubuntu:
 #   <https://git.launchpad.net/ubuntu/+source/imagemagick/commit/?h=ubuntu/bionic-updates&id=b073c8ff5fa055eddc5d608d4b330f7ec36dbc94>
 #
+export PDF_DISABLED_MSG=NOTE: PDF conversion may be disabled. See comments in Makefile for details and workaround.
 %.png: %.pdf
-	# Conversion from PDF may be disabled by your distro.
-	# If you receive "not authorized" errors, see the longer comment in the Makefile.
-	convert -density 125 -alpha remove $^ $@
+	convert -density 125 -alpha remove $^ $@ || { echo $$PDF_DISABLED_MSG; false; }
 
 %.alpha.png: %.png
-	# Conversion from PDF may be disabled by your distro.
-	# If you receive "not authorized" errors, see the longer comment in the Makefile.
 	convert -fuzz 10% -transparent white $^ $@
