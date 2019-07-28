@@ -184,7 +184,7 @@ digraph {
         project25[label="Optimized MegaClippers\n(+100% megaclip)"]
 
         node[shape=oval]
-        { "12,000 ops", "AutoClippers >= 75" } -> project22
+        { "12,000 ops", "75 AutoClippers" } -> project22
         { "14,000 ops", project22 } -> project23
         { "17,000 ops", project23 } -> project24
         { "19,500 ops", project24 } -> project25
