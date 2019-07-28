@@ -163,11 +163,15 @@ digraph {
 
         node[shape=oval, style=filled]
 
+        // Note that the "wireSupply" variable in the code represents the
+        // supply from each spool, not your current wire count. Each project's
+        // trigger threshold matches the value set by the project before it, so
+        // effectively they depend on each other.
         { "1750 ops", "Buy wire 1x" } -> project7
-        { "3000 ops", "1500 wire" } -> project8
+        { "3000 ops", project7 } -> project8
         { "7000 ops", "Buy wire 15x" } -> project26
-        { "7500 ops", "2600 wire" } -> project9
-        { "12,000 ops", "5000 wire" } -> project10
+        { "7500 ops", project8 } -> project9
+        { "12,000 ops", project9 } -> project10
         { "15,000 ops", "wire >= $125" } -> project10b
     }
 
