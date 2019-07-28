@@ -1,6 +1,10 @@
 digraph {
     rankdir=TD
 
+    label="Universal Paperclips - Stage 1"
+    labelloc=top
+    labeljust=left
+
     // default project shape
     node[shape=box, style=filled, fillcolor=grey80]
 
