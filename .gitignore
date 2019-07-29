@@ -3,4 +3,7 @@
 *.pdf
 *.png
 
+__pycache__
+
 paperclips-source
+projects-filtered.txt
