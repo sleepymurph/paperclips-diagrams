@@ -4,9 +4,6 @@
 
 digraph {
 
-    // default project shape
-    node[shape=box, style=filled, fillcolor=grey80]
-
     {
         // Repeated nodes
         s3_project46[label="Space Exploration ", DARK(), PROJECT()]
@@ -72,12 +69,14 @@ digraph {
 
         threnody_yomi[label="20,000 yomi"]
         threnody_yomi2[label="prev. yomi\n +4,000"]
+
+        high_trust_cost[label="Probe trust cost\n greater than\n available yomi"]
     }
 
-    // Strategic Modeling and Yomi targets
+    // Strategic Modeling and Yomi
 
-    project128[label="Strategic Attachment\n (Gain bonus yomi\n for winning strats)"]
-    { s3_project46, "175,000 creat", s3_all_strats, "Probe trust cost\n greater than\n available yomi"} -> project128
+    project128[label="Strategic Attachment\n (Gain bonus yomi\n for winning strats)", YOMI(), PROJECT()]
+    { s3_project46, "175,000 creat", s3_all_strats, high_trust_cost } -> project128
 
     {
         node[CLIPS(), TARGET()]
