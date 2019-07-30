@@ -14,7 +14,7 @@ digraph {
     // Stage 1
     // --------------------------------------------------
 
-    subgraph stage1 {
+    subgraph cluster_stage1 {
 
         label="Universal Paperclips --- Stage 1"
 
@@ -305,7 +305,7 @@ digraph {
     // Stage 2
     // --------------------------------------------------
 
-    subgraph stage2 {
+    subgraph cluster_stage2 {
 
         label="Universal Paperclips --- Stage 2"
 
@@ -469,6 +469,7 @@ digraph {
         }
 
     }
+
 }
 
 /*
