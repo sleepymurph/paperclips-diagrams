@@ -1,7 +1,14 @@
-# Drone cost formulas from main.js:
+
+
+# Stage 1
+
+# - Trust is calculated by fibonnaci numbers. See main.js:calculateTrust
+# - Projects start at 2000 cips
+
+# Stage 2
+
 # harvesterCost = Math.pow((harvesterLevel+1),2.25)*1000000;
 # wireDroneCost = Math.pow((wireDroneLevel+1),2.25)*1000000;
-
 def drone_cost(drones):
     acc = 0
     for i in range(0, drones//2):
@@ -9,6 +16,7 @@ def drone_cost(drones):
         acc += cost
     return acc * 2
 
+# See main.js:makeFactory
 def factory_cost(factories):
     acc = 0
     fc = 100000000
@@ -27,7 +35,6 @@ def factory_cost(factories):
         fc *= fcmod
     return acc
 
-
 # farmCost = Math.pow(farmLevel+1,2.78)*100000000; 
 def farm_cost(farms):
     acc = 0
@@ -35,6 +42,19 @@ def farm_cost(farms):
         cost = (i+1)**2.78 * 100000000
         acc += cost
     return acc
+
+stage2_qtys = {
+        "drones": [drone_cost, 200, 500, 5000, 50*1000],
+        "factories": [factory_cost, 10, 20, 50],
+        "solar farms": [farm_cost, 30],
+        }
+
+stage2_targets = {
+        "project102": (1, "sextillion"),    # Self-correcting supply chain
+        "project46": (5, "octillion"),      # Space exploration
+        }
+
+# Display
 
 illions = [
         "",
@@ -64,19 +84,7 @@ def exp_to_int(f, illion):
     magnitude = illions.index(illion)
     return int(f * 1000**magnitude)
 
-stage2_qtys = {
-        "drones": [drone_cost, 200, 500, 5000, 50*1000],
-        "factories": [factory_cost, 10, 20, 50],
-        "solar farms": [farm_cost, 30],
-        }
-
-stage2_targets = {
-        "project102": (1, "sextillion"),    # Self-correcting supply chain
-        "project46": (5, "octillion"),      # Space exploration
-        }
-
-
-if __name__=="__main__":
+def print_stage2_graphviz():
     by_price = []
 
     for piece, (cost_fn, *qtys) in stage2_qtys.items():
@@ -98,7 +106,9 @@ if __name__=="__main__":
         print(indent + "{price} -> {target}".format(**locals()))
 
     print(indent + "//")
-
     print(indent + "project45 ->")
     fmtprices = [indent + price for price,_ in by_price_fmt]
     print(" ->\n".join(fmtprices))
+
+if __name__=="__main__":
+    print_stage2_graphviz()
