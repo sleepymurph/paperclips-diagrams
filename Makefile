@@ -1,10 +1,26 @@
-.PHONY: all pdfs pngs pngs_alpha
+.PHONY: default all pdfs pngs pngs_alpha sources
 
+default: pdfs
 all: pdfs pngs pngs_alpha
 
-pdfs: $(addsuffix .pdf, $(basename $(wildcard *.tex *.dot)))
-pngs: $(addsuffix .png, $(basename $(wildcard *.tex *.dot)))
-pngs_alpha: $(addsuffix .alpha.png, $(basename $(wildcard *.tex *.dot)))
+sources:= $(wildcard *.tex *.dot) paperclips-diagram-all.dot
+pdfs: $(addsuffix .pdf, $(basename $(sources)))
+pngs: $(addsuffix .png, $(basename $(sources)))
+pngs_alpha: $(addsuffix .alpha.png, $(basename $(sources)))
+
+paperclips-diagram-all.dot: \
+    paperclips-diagram-stage1.dot \
+    paperclips-diagram-stage2.dot \
+    paperclips-diagram-stage3.dot \
+
+	echo -n "" > $@
+	echo "digraph {" >> $@
+	sed "s/digraph/subgraph cluster_stage1/" paperclips-diagram-stage1.dot >> $@
+	sed "s/digraph/subgraph cluster_stage2/" paperclips-diagram-stage2.dot >> $@
+	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
+	echo "    project35 -> s2_project35" >> $@
+	echo "    project46 -> space_flag" >> $@
+	echo "}" >> $@
 
 %.pdf: %.tex
 	pdflatex $^
