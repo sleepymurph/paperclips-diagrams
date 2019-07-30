@@ -41,8 +41,7 @@ digraph {
         "100,000 creat"[RESET(), TARGET()]
 
         node[CREAT(), TARGET()]
-        "25,000 creat" ->
-        "50,000 creat" ->
+        s1_50k_creat ->
         "100,000 creat"
     }
 
