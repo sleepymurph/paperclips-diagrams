@@ -5,7 +5,7 @@ digraph {
     labelloc=top
     labeljust=left
 
-    newrank=false
+    // newrank=false
 
     // default project shape
     node[shape=box, style=filled, fillcolor=grey80]
@@ -286,7 +286,7 @@ digraph {
             project35[label="Release the HypnoDrones"]
         }
         {
-            humanFlag[label="--- Stage 2 ---"]
+            humanFlag[label="--- Begin Stage 2 ---"]
             { project35 } -> humanFlag
         }
         {
@@ -299,16 +299,9 @@ digraph {
 
             "80,000 ops" ->
             "85,000 ops" ->
+            "90 trust" ->
             "100,000 ops" ->
             "120,000 ops"
-        }
-        {
-            // Strategic Modeling and Yomi targets
-            node[style=filled, fillcolor=lightblue2]
-
-            node[shape=oval]
-            "36,000 yomi"
-            "50,000 yomi"
         }
         {
             // Creativity targets
@@ -317,11 +310,30 @@ digraph {
             project18[label="Töth Tubule Enfolding\n(Begin building with paperclips)"]
 
             { s2_project17, humanFlag, s2_45kops } -> project18
+
+            node[shape=oval]
+            "20,000 creat" ->
+            "25,000 creat" ->
+            "50,000 creat"
+        }
+        {
+            // Strategic Modeling and Yomi targets
+            node[style=filled, fillcolor=lightblue2]
+            project119[label="Theory of Mind\n(Double tournament\n cost and reward)"]
+            project118[label="AutoTourney "]
+
+            node[shape=oval]
+            "36,000 yomi"
+            "50,000 yomi"
+
+            { "25,000 creat", "All 8 strats\n unlocked" } -> project119
+            { "50,000 creat", "90 trust" } -> project118
         }
         {
             // Power grid
             node[fillcolor=goldenrod]
             project127[label="Power Grid "]
+            project125[label="Momentum\n(All perf. increases\nwhile powered)"]
 
             node[shape=oval]
             s2_ultimate_power[label="10,000,000\n MW-seconds"]
@@ -343,7 +355,8 @@ digraph {
 
             node[shape=oval]
 
-            // "200 drones" -> "500 drones" -> "5,000 drones" -> "50,000 drones"
+            { project43, project44 } ->
+            "200 drones" -> "500 drones" -> "5,000 drones" -> "50,000 drones"
 
             { project127, s2_35kops } -> project41
             { project41, s2_25kops } -> project43
@@ -358,7 +371,7 @@ digraph {
             project45[label="Clip Factories "]
             project100[label="Upgraded Factories\n(100x factory perf.)"]
             project101[label="Hyperspeed Factories\n(1000x factory perf.)"]
-            project102[label="Self-correcting Supply Chain "]
+            project102[label="Self-correcting Supply Chain\n(Every factory increases\n every other factory)"]
 
             node[shape=oval]
             project45 ->
@@ -383,7 +396,6 @@ digraph {
         {
             // Creativity targets
             node[style=filled, fillcolor=mediumpurple]
-            project125[label="Momentum "]
 
             node[shape=oval]
             { "20,000 creat", "30 solar farms" } -> project125
@@ -423,8 +435,6 @@ digraph {
 }
 
 /*
-project118[label="AutoTourney "]
-project119[label="Theory of Mind "]
 project120[label="The OODA Loop "]
 project121[label="Name the battles "]
 project128[label="Strategic Attachment "]

@@ -100,7 +100,7 @@ def print_stage2_graphviz():
     by_price.sort()
     by_price_fmt = [("\"{} clips\"".format(pretty_exp(price)), target) for price,target in by_price]
 
-    indent = " "*8
+    indent = " "*4*3
 
     for price, target in by_price_fmt:
         print(indent + "{price} -> {target}".format(**locals()))
