@@ -1,7 +1,10 @@
-.PHONY: default all pdfs svgs pngs pngs_alpha dots
+.PHONY: default all clean pdfs svgs pngs pngs_alpha dots
 
 default: pdfs svgs
 all: pdfs svgs pngs pngs_alpha
+
+clean:
+	git clean -fX
 
 dots:= $(basename $(wildcard *.dot.m4)) \
     paperclips-diagram-all.dot \
