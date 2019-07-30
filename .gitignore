@@ -2,6 +2,7 @@
 *.log
 *.pdf
 *.png
+*.svg
 
 __pycache__
 
