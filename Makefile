@@ -13,6 +13,11 @@ svgs: $(addsuffix .svg, $(basename $(dots)))
 pngs: $(addsuffix .png, $(basename $(dots)))
 pngs_alpha: $(addsuffix .alpha.png, $(basename $(dots)))
 
+paperclips-diagram-stage2.dot: paperclips-diagram-stage2-include.dot
+
+paperclips-diagram-stage2-include.dot: upc_prices.py
+	python3 upc_prices.py > $@
+
 paperclips-diagram-all.dot: \
     paperclips-diagram-stage1-combined.dot \
     paperclips-diagram-stage2.dot \
@@ -47,19 +52,19 @@ paperclips-diagram-stage2plus3.dot: \
 	echo "}" >> $@
 
 %.dot: %.dot.m4
-	m4 common.m4 $^ > $@
+	m4 common.m4 $< > $@
 
 %.pdf: %.tex
-	pdflatex $^
+	pdflatex $<
 
 %.pdf: %.dot
-	dot $^ -Tpdf -o $@
+	dot $< -Tpdf -o $@
 
 %.png: %.dot
-	dot $^ -Tpng -o $@
+	dot $< -Tpng -o $@
 
 %.svg: %.dot
-	dot $^ -Tsvg -o $@
+	dot $< -Tsvg -o $@
 
 %.alpha.png: %.png
-	convert -fuzz 10% -transparent white $^ $@
+	convert -fuzz 10% -transparent white $< $@

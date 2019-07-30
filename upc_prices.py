@@ -1,5 +1,3 @@
-
-
 # Stage 1
 
 # - Trust is calculated by fibonnaci numbers. See main.js:calculateTrust
@@ -100,7 +98,7 @@ def print_stage2_graphviz():
     by_price.sort()
     by_price_fmt = [("\"{} clips\"".format(pretty_exp(price)), target) for price,target in by_price]
 
-    indent = " "*4*3
+    indent = " "*4*2
 
     for price, target in by_price_fmt:
         print(indent + "{price} -> {target}".format(**locals()))

@@ -4,9 +4,6 @@
 
 digraph {
 
-    // default project shape
-    node[shape=box, style=filled, fillcolor=grey80]
-
     {
         // Ops targets
         node[OPS(), TARGET()]
@@ -72,11 +69,11 @@ digraph {
     { "32,500 ops", project65 } -> project66
     project66 -> all_strats
 
-    project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
-    { "25,000 creat", all_strats } -> project119
+    s1_project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
+    { "25,000 creat", all_strats } -> s1_project119
 
-    project118[label="AutoTourney ", YOMI(), PROJECT()]
-    { "50,000 creat", "90 trust" } -> project118
+    s1_project118[label="AutoTourney ", YOMI(), PROJECT()]
+    { "50,000 creat", "90 trust" } -> s1_project118
 
     // Money targets
 
