@@ -21,7 +21,6 @@ digraph {
         {
             // Ops targets
             node[shape=oval, style="", fillcolor=""]
-            s1_90trust[label="90 trust"]
 
             "500 ops" ->
             "750 ops" ->
@@ -54,7 +53,7 @@ digraph {
             "55,000 ops" ->
             "70,000 ops" ->
             "85 trust" ->
-            s1_90trust ->
+            "90 trust" ->
             "100 trust"
         }
 
@@ -62,17 +61,20 @@ digraph {
             // Repeating targets: Theory of Mind and Autotourney
             node[style=filled, fillcolor=mediumpurple]
             node[shape=oval]
-            s1_25k_creat[label="25,000 creat"]
-            s1_50k_creat[label="50,000 creat"]
+            s1_tm_25k_creat[label="25,000 creat"]
+            s1_tm_50k_creat[label="50,000 creat"]
+            s1_tm_25k_creat -> s1_tm_50k_creat
 
-            node[style=filled, fillcolor=lightblue2]
+            node[shape=box, style=filled, fillcolor=lightblue2]
             s1_project119[label="Theory of Mind\n(Double tournament\n cost and reward)"]
             s1_project118[label="AutoTourney "]
 
             node[shape=oval]
-            { s1_25k_creat } -> s1_project119
-            { s1_50k_creat, s1_90trust } -> s1_project118
+            s1_tm_all_strats[label="All strats unlocked"]
+            { s1_tm_25k_creat, s1_tm_all_strats } -> s1_project119
+            { s1_tm_50k_creat } -> s1_project118
         }
+        "90 trust" -> s1_project118
 
         {
             // AutoClippers
@@ -157,7 +159,7 @@ digraph {
             { "25,000 ops", project63 } -> project64
             { "30,000 ops", project64 } -> project65
             { "32,500 ops", project65 } -> project66
-            project66 -> s1_project119
+            project66 -> s1_tm_all_strats
         }
 
         {
@@ -325,24 +327,8 @@ digraph {
             "85,000 ops" ->
             "100,000 ops" ->
             "120,000 ops"
-
-            s2_90trust[label="90 trust"]
         }
-        {
-            // Repeating targets: Theory of Mind and Autotourney
-            node[style=filled, fillcolor=mediumpurple]
-            node[shape=oval]
-            s2_25k_creat[label="25,000 creat"]
-            s2_50k_creat[label="50,000 creat"]
 
-            node[style=filled, fillcolor=lightblue2]
-            s2_project119[label="Theory of Mind\n(Double tournament\n cost and reward)"]
-            s2_project118[label="AutoTourney "]
-
-            node[shape=oval]
-            { s2_25k_creat, "All 8 strats\n unlocked" } -> s2_project119
-            { s2_50k_creat, s2_90trust } -> s2_project118
-        }
         {
             // Creativity targets
             node[style=filled, fillcolor=mediumpurple]
@@ -350,12 +336,30 @@ digraph {
             project18[label="Töth Tubule Enfolding\n(Begin building with paperclips)"]
 
             node[shape=oval]
-            "20,000 creat" ->
-            s2_25k_creat ->
-            s2_50k_creat
+            "20,000 creat"
 
             { s2_project17, s2_project35, s2_45kops } -> project18
         }
+
+        {
+            // Repeating targets: Theory of Mind and Autotourney
+            node[style=filled, fillcolor=mediumpurple]
+            node[shape=oval]
+            s2_tm_25k_creat[label="25,000 creat"]
+            s2_tm_50k_creat[label="50,000 creat"]
+            s2_tm_25k_creat -> s2_tm_50k_creat
+
+            node[shape=box, style=filled, fillcolor=lightblue2]
+            s2_project119[label="Theory of Mind\n(Double tournament\n cost and reward)"]
+            s2_project118[label="AutoTourney "]
+
+            node[shape=oval]
+            s2_tm_all_strats[label="All strats unlocked"]
+            { s2_tm_25k_creat, s2_tm_all_strats } -> s2_project119
+            { s2_tm_50k_creat } -> s2_project118
+        }
+        "20,000 creat" -> s2_tm_25k_creat
+
         {
             // Strategic Modeling and Yomi targets
             node[style=filled, fillcolor=lightblue2]
