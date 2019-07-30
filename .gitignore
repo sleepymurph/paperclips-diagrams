@@ -4,10 +4,8 @@
 *.png
 *.svg
 
-paperclips-diagram-all.dot
-paperclips-diagram-stage1-combined.dot
-paperclips-diagram-stage2plus3.dot
-
+# *.dot generated from .dot.m4
+*.dot
 
 __pycache__
 

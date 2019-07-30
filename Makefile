@@ -1,26 +1,26 @@
-.PHONY: default all pdfs svgs pngs pngs_alpha sources
+.PHONY: default all pdfs svgs pngs pngs_alpha dots
 
 default: pdfs svgs
 all: pdfs svgs pngs pngs_alpha
 
-sources:= $(wildcard *.tex *.dot) \
+dots:= $(basename $(wildcard *.dot.m4)) \
     paperclips-diagram-all.dot \
     paperclips-diagram-stage1-combined.dot \
     paperclips-diagram-stage2plus3.dot \
 
-pdfs: $(addsuffix .pdf, $(basename $(sources)))
-svgs: $(addsuffix .svg, $(basename $(sources)))
-pngs: $(addsuffix .png, $(basename $(sources)))
-pngs_alpha: $(addsuffix .alpha.png, $(basename $(sources)))
+pdfs: $(addsuffix .pdf, $(basename $(dots)))
+svgs: $(addsuffix .svg, $(basename $(dots)))
+pngs: $(addsuffix .png, $(basename $(dots)))
+pngs_alpha: $(addsuffix .alpha.png, $(basename $(dots)))
 
 paperclips-diagram-all.dot: \
-    paperclips-diagram-stage1.dot \
+    paperclips-diagram-stage1-combined.dot \
     paperclips-diagram-stage2.dot \
     paperclips-diagram-stage3.dot \
 
 	echo -n "" > $@
 	echo "digraph {" >> $@
-	sed "s/digraph/subgraph cluster_stage1/" paperclips-diagram-stage1.dot >> $@
+	sed "s/digraph/subgraph cluster_stage1/" paperclips-diagram-stage1-combined.dot >> $@
 	sed "s/digraph/subgraph cluster_stage2/" paperclips-diagram-stage2.dot >> $@
 	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
 	echo "    project35 -> s2_project35" >> $@
@@ -45,6 +45,9 @@ paperclips-diagram-stage2plus3.dot: \
 	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
 	echo "    project46 -> space_flag" >> $@
 	echo "}" >> $@
+
+%.dot: %.dot.m4
+	m4 common.m4 $^ > $@
 
 %.pdf: %.tex
 	pdflatex $^
