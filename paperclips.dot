@@ -469,6 +469,18 @@ digraph {
 
         }
 
+        {/*
+            // Problems
+            node[style=filled, fillcolor=orange]
+            entertain[label="Entertain the swarm\n(cost: 10,000 creat\n +10,000 more each time)"]
+            rebalance[label="Rebalance the sware\n(cost: 5,00 yomi)"]
+
+            node[shape=oval]
+            // {project43,project44} ->
+            "Swarm gets bored" -> entertain
+            // {project43,project44} ->
+            "Swarm imbalanced" -> rebalance
+        */}
     }
 
     // --------------------------------------------------
@@ -617,6 +629,7 @@ digraph {
             { "300,000 ops", universal_paperclips } -> project200
             { "300,000 creat", universal_paperclips } -> project201
         }
+
     }
 
 }
