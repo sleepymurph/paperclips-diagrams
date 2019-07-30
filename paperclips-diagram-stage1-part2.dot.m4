@@ -5,6 +5,11 @@
 digraph {
 
     {
+        // Repeated nodes
+        s1b_project34[label="Hypno Harmonics\n(5x marketing, -1 trust)", DARK(), PROJECT()]
+    }
+
+    {
         // Repeating targets: Theory of Mind and Auto-Tourney
         s1_90_trust[label="90 trust", OPS(), TARGET()]
         s1_25k_creat[label="25,000 creat", CREAT(), TARGET()]
@@ -98,13 +103,11 @@ digraph {
 
     // HypnoDrones
 
-    project34[label="Hypno Harmonics\n(5x marketing, -1 trust)", DARK(), PROJECT()]
-
     project35[label="Release the HypnoDrones", DARK(), PROJECT()]
     { "100 trust", project70 } -> project35
 
     project70[label="HypnoDrones", DARK(), PROJECT()]
-    { "70,000 ops", project34 } -> project70
+    { "70,000 ops", s1b_project34 } -> project70
 
     // Megaprojects
 
