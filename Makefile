@@ -29,7 +29,7 @@ paperclips-diagram-all.dot: \
 	sed "s/digraph/subgraph cluster_stage2/" paperclips-diagram-stage2.dot >> $@
 	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
 	echo "    project35 -> s2_project35" >> $@
-	echo "    project46 -> space_flag" >> $@
+	echo "    project46 -> s3_project46" >> $@
 	echo "}" >> $@
 
 paperclips-diagram-stage1-combined.dot: \
@@ -48,7 +48,7 @@ paperclips-diagram-stage2plus3.dot: \
 	echo "digraph {" >> $@
 	sed "s/digraph/subgraph cluster_stage2/" paperclips-diagram-stage2.dot >> $@
 	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
-	echo "    project46 -> space_flag" >> $@
+	echo "    project46 -> s3_project46" >> $@
 	echo "}" >> $@
 
 %.dot: %.dot.m4

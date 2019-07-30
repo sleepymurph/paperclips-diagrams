@@ -15,3 +15,5 @@ define(`RESET', `style=filled, fillcolor=orange')
 define(`POWERGRID', `style=filled, fillcolor=gold')
 define(`DRONE', `style=filled, fillcolor=darkseagreen')
 define(`FACTORY', `CLIPS()')
+
+define(`COMBAT', `DARK()')

@@ -5,6 +5,20 @@
 digraph {
 
     {
+        // Repeating targets: Theory of Mind and Auto-Tourney
+        s1_90_trust[label="90 trust", OPS(), TARGET()]
+        s1_25k_creat[label="25,000 creat", CREAT(), TARGET()]
+        s1_50k_creat[label="50,000 creat", CREAT(), TARGET()]
+        s1_all_strats[label="All strats unlocked", YOMI(), TARGET()]
+        s1_project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
+        s1_project118[label="AutoTourney ", YOMI(), PROJECT()]
+
+        s1_25k_creat -> s1_50k_creat
+        { s1_25k_creat, s1_all_strats } -> s1_project119
+        { s1_50k_creat, s1_90_trust } -> s1_project118
+    }
+
+    {
         // Ops targets
         node[OPS(), TARGET()]
         "20,000 ops" ->
@@ -19,7 +33,7 @@ digraph {
         "55,000 ops" ->
         "70,000 ops" ->
         "85 trust" ->
-        "90 trust" ->
+        s1_90_trust ->
         "100 trust"
     }
 
@@ -42,8 +56,6 @@ digraph {
         "3,000 yomi" ->
         "4,500 yomi" ->
         "15,000 yomi"
-
-        all_strats[label="All strats unlocked"]
     }
 
     {
@@ -67,13 +79,7 @@ digraph {
 
     project66[label="New Strategy: BEAT LAST", YOMI(), PROJECT()]
     { "32,500 ops", project65 } -> project66
-    project66 -> all_strats
-
-    s1_project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
-    { "25,000 creat", all_strats } -> s1_project119
-
-    s1_project118[label="AutoTourney ", YOMI(), PROJECT()]
-    { "50,000 creat", "90 trust" } -> s1_project118
+    project66 -> s1_all_strats
 
     // Money targets
 
