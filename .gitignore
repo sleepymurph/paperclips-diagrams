@@ -4,8 +4,12 @@
 *.png
 *.svg
 
+paperclips-diagram-all.dot
+paperclips-diagram-stage1-combined.dot
+paperclips-diagram-stage2plus3.dot
+
+
 __pycache__
 
-paperclips-diagram-all.dot
 paperclips-source
 projects-filtered.txt

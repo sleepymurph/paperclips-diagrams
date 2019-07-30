@@ -5,6 +5,7 @@ all: pdfs svgs pngs pngs_alpha
 
 sources:= $(wildcard *.tex *.dot) \
     paperclips-diagram-all.dot \
+    paperclips-diagram-stage1-combined.dot \
     paperclips-diagram-stage2plus3.dot \
 
 pdfs: $(addsuffix .pdf, $(basename $(sources)))
@@ -25,6 +26,14 @@ paperclips-diagram-all.dot: \
 	echo "    project35 -> s2_project35" >> $@
 	echo "    project46 -> space_flag" >> $@
 	echo "}" >> $@
+
+paperclips-diagram-stage1-combined.dot: \
+    paperclips-diagram-stage1-part1.dot \
+    paperclips-diagram-stage1-part2.dot \
+
+	echo -n "" > $@
+	sed "/rank=sink/d; /^}/d" paperclips-diagram-stage1-part1.dot >> $@
+	sed "/rank=source/d; /^digraph/d" paperclips-diagram-stage1-part2.dot >> $@
 
 paperclips-diagram-stage2plus3.dot: \
     paperclips-diagram-stage2.dot \
