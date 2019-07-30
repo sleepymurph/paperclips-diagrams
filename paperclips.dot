@@ -5,404 +5,422 @@ digraph {
     labelloc=top
     labeljust=left
 
+    newrank=false
+
     // default project shape
     node[shape=box, style=filled, fillcolor=grey80]
 
-    {
-        // Ops targets
-        node[shape=oval, style="", fillcolor=""]
-        "500 ops" ->
-        "750 ops" ->
-        "1000 ops" ->
-        "1750 ops" ->
-        "2500 ops" ->
-        "3000 ops" ->
-        "4500 ops" ->
-        "5000 ops" ->
-        "6000 ops" ->
-        "7000 ops" ->
-        "7500 ops" ->
-        "8 trust" ->
-        "10,000 ops" ->
-        "12,000 ops" ->
-        "14,000 ops" ->
-        "15,000 ops" ->
-        "17,000 ops" ->
-        "17,500 ops" ->
-        "19,500 ops" ->
-        "20,000 ops" ->
-        "22,500 ops" ->
-        "25,000 ops" ->
-        "30,000 ops" ->
-        "32,500 ops" ->
-        "35,000 ops" ->
-        "40,000 ops" ->
-        "45,000 ops" ->
-        "50,000 ops" ->
-        "55,000 ops" ->
-        "70,000 ops" ->
-        "85 trust" ->
-        "100 trust"
-    }
+    // --------------------------------------------------
+    // Stage 1
+    // --------------------------------------------------
 
-    {
-        // AutoClippers
-        node[style=filled, fillcolor=""]
-        project1[label="Improved AutoClippers\n(+25% autoclip)"]
-        project4[label="Even Better AutoClippers\n(+50% autoclip)"]
-        project5[label="Optimized AutoClippers\n(+70% autoclip)"]
-        project16[label="Hadwiger Clip Diagrams\n(+500% autoclip)"]
+    subgraph stage1 {
 
-        node[shape=oval]
-        "750 ops" -> project1
-        "2500 ops" -> project4
-        "5000 ops" -> project5
-        "101 million clips"
-    }
+        {
+            // Ops targets
+            node[shape=oval, style="", fillcolor=""]
+            "500 ops" ->
+            "750 ops" ->
+            "1000 ops" ->
+            "1750 ops" ->
+            "2500 ops" ->
+            "3000 ops" ->
+            "4500 ops" ->
+            "5000 ops" ->
+            "6000 ops" ->
+            "7000 ops" ->
+            "7500 ops" ->
+            "8 trust" ->
+            "10,000 ops" ->
+            "12,000 ops" ->
+            "14,000 ops" ->
+            "15,000 ops" ->
+            "17,000 ops" ->
+            "17,500 ops" ->
+            "19,500 ops" ->
+            "20,000 ops" ->
+            "22,500 ops" ->
+            "25,000 ops" ->
+            "30,000 ops" ->
+            "32,500 ops" ->
+            "35,000 ops" ->
+            "40,000 ops" ->
+            "45,000 ops" ->
+            "50,000 ops" ->
+            "55,000 ops" ->
+            "70,000 ops" ->
+            "85 trust" ->
+            "100 trust"
+        }
 
-    {
-        // Creativity targets
-        node[style=filled, fillcolor=mediumpurple]
-        project3[label="Creativity"]
-        project6[label="Limerick\n(+1 trust)"]
+        {
+            // AutoClippers
+            node[style=filled, fillcolor=""]
+            project1[label="Improved AutoClippers\n(+25% autoclip)"]
+            project4[label="Even Better AutoClippers\n(+50% autoclip)"]
+            project5[label="Optimized AutoClippers\n(+70% autoclip)"]
+            project16[label="Hadwiger Clip Diagrams\n(+500% autoclip)"]
 
-        project13[label="Lexical Processing\n(+1 trust)"]
-        project14[label="Combinatory Harmonics\n(+1 trust)"]
+            node[shape=oval]
+            "750 ops" -> project1
+            "2500 ops" -> project4
+            "5000 ops" -> project5
+            "101 million clips"
+        }
 
-        project11[label="New Slogan\n(+50% marketing)"]
-        project12[label="Catchy Jingle\n(2x marketing)"]
+        {
+            // Creativity targets
+            node[style=filled, fillcolor=mediumpurple]
+            project3[label="Creativity"]
+            project6[label="Limerick\n(+1 trust)"]
 
-        project15[label="The Hadwiger Problem\n(+1 trust)"]
-        project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
-        project19[label="Donkey Space\n(+1 trust)"]
+            project13[label="Lexical Processing\n(+1 trust)"]
+            project14[label="Combinatory Harmonics\n(+1 trust)"]
 
-        node[shape=oval]
-        "10 creat" ->
-        "50 creat" ->
-        "100 creat" ->
-        "150 creat" ->
-        "200 creat" ->
-        "250 creat" ->
-        "500 creat"
+            project11[label="New Slogan\n(+50% marketing)"]
+            project12[label="Catchy Jingle\n(2x marketing)"]
 
-        "1000 ops" -> project3
-        project3 -> "10 creat"
-        "10 creat" -> project6
-        { "25 creat", "2500 ops", project13 } -> project11
-        { "45 creat", "4500 ops", project14 } -> project12
-        { "50 creat" } -> project13
-        { "100 creat" } -> project14
-        { "150 creat" } -> project15
-        { "200 creat" } -> project17
-        { "250 creat" } -> project19
-    }
+            project15[label="The Hadwiger Problem\n(+1 trust)"]
+            project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
+            project19[label="Donkey Space\n(+1 trust)"]
 
-    { "6000 ops", project15 } -> project16
+            node[shape=oval]
+            "10 creat" ->
+            "50 creat" ->
+            "100 creat" ->
+            "150 creat" ->
+            "200 creat" ->
+            "250 creat" ->
+            "500 creat"
 
-    {
-        // Strategic Modeling and Yomi targets
-        node[style=filled, fillcolor=lightblue2]
-        project20[label="Strategic Modeling\n(enable tournament/yomi)"]
-        project60[label="New Strategy: A100"]
-        project61[label="New Strategy: B100"]
-        project62[label="New Strategy: GREEDY"]
-        project63[label="New Strategy: GENEROUS"]
-        project64[label="New Strategy: MINIMAX"]
-        project65[label="New Strategy: TIT FOR TAT"]
-        project66[label="New Strategy: BEAT LAST"]
+            "1000 ops" -> project3
+            project3 -> "10 creat"
+            "10 creat" -> project6
+            { "25 creat", "2500 ops", project13 } -> project11
+            { "45 creat", "4500 ops", project14 } -> project12
+            { "50 creat" } -> project13
+            { "100 creat" } -> project14
+            { "150 creat" } -> project15
+            { "200 creat" } -> project17
+            { "250 creat" } -> project19
+        }
 
-        node[shape=oval]
-        "3,000 yomi" ->
-        "4,500 yomi" ->
-        "15,000 yomi"
+        { "6000 ops", project15 } -> project16
 
-        project20 -> "3,000 yomi"
-        { "12,000 ops", project19 } -> project20
-        { "15,000 ops", project20 } -> project60
-        { "17,500 ops", project60 } -> project61
-        { "20,000 ops", project61 } -> project62
-        { "22,500 ops", project62 } -> project63
-        { "25,000 ops", project63 } -> project64
-        { "30,000 ops", project64 } -> project65
-        { "32,500 ops", project65 } -> project66
-    }
+        {
+            // Strategic Modeling and Yomi targets
+            node[style=filled, fillcolor=lightblue2]
+            project20[label="Strategic Modeling\n(enable tournament/yomi)"]
+            project60[label="New Strategy: A100"]
+            project61[label="New Strategy: B100"]
+            project62[label="New Strategy: GREEDY"]
+            project63[label="New Strategy: GENEROUS"]
+            project64[label="New Strategy: MINIMAX"]
+            project65[label="New Strategy: TIT FOR TAT"]
+            project66[label="New Strategy: BEAT LAST"]
 
-    {
-        // Money targets
-        node[style=filled, fillcolor=darkolivegreen4]
-        project21[label="Algorithmic Trading\n(enable investment)"]
-        project37[label="Hostile Takeover\n(+1 trust, 5x demand)"]
-        project38[label="Full Monopoly\n(+1 trust, 10x demand)"]
-        project42[label="RevTracker"]
-        project40[label="A Token of Goodwill...\n(+1 trust)"]
-        project40b[label="Another Token of Goodwill...\n(+1 trust)"]
+            node[shape=oval]
+            "3,000 yomi" ->
+            "4,500 yomi" ->
+            "15,000 yomi"
 
-        node[shape=oval]
-        "$1 M" -> "$10 M"
-        "$500,000" -> "2x previous\ngift $$"
+            project20 -> "3,000 yomi"
+            { "12,000 ops", project19 } -> project20
+            { "15,000 ops", project20 } -> project60
+            { "17,500 ops", project60 } -> project61
+            { "20,000 ops", project61 } -> project62
+            { "22,500 ops", project62 } -> project63
+            { "25,000 ops", project63 } -> project64
+            { "30,000 ops", project64 } -> project65
+            { "32,500 ops", project65 } -> project66
+        }
 
-        { "10,000 ops", "8 trust" } -> project21
-        { "$1 M" } -> project37
-        { "500 ops" } -> project42
-        { "$500,000", "85 trust", "101 million clips" } -> project40
-        { "2x previous\ngift $$", project40 } -> project40b
-    }
+        {
+            // Money targets
+            node[style=filled, fillcolor=darkolivegreen4]
+            project21[label="Algorithmic Trading\n(enable investment)"]
+            project37[label="Hostile Takeover\n(+1 trust, 5x demand)"]
+            project38[label="Full Monopoly\n(+1 trust, 10x demand)"]
+            project42[label="RevTracker"]
+            project40[label="A Token of Goodwill...\n(+1 trust)"]
+            project40b[label="Another Token of Goodwill...\n(+1 trust)"]
 
-    { "$10 M", "3,000 yomi", project37 } -> project38
+            node[shape=oval]
+            "$1 M" -> "$10 M"
+            "$500,000" -> "2x previous\ngift $$"
+
+            { "10,000 ops", "8 trust" } -> project21
+            { "$1 M" } -> project37
+            { "500 ops" } -> project42
+            { "$500,000", "85 trust", "101 million clips" } -> project40
+            { "2x previous\ngift $$", project40 } -> project40b
+        }
+
+        { "$10 M", "3,000 yomi", project37 } -> project38
 
 
-    {
-        // Wire targets
-        node[fillcolor=lightsteelblue]
-        project7[label="Improved Wire Extrusion\n(+50% wire)"]
-        project8[label="Optimized Wire Extrusion\n(+75% wire)"]
-        project9[label="Microlattice Shapecasting\n(+100% wire)"]
-        project10[label="Spectral Froth Annealment\n(+200% wire)"]
-        project10b[label="Quantum Foam Annealment\n(+1,000% wire)"]
-        project26[label="WireBuyer"]
+        {
+            // Wire targets
+            node[fillcolor=lightsteelblue]
+            project7[label="Improved Wire Extrusion\n(+50% wire)"]
+            project8[label="Optimized Wire Extrusion\n(+75% wire)"]
+            project9[label="Microlattice Shapecasting\n(+100% wire)"]
+            project10[label="Spectral Froth Annealment\n(+200% wire)"]
+            project10b[label="Quantum Foam Annealment\n(+1,000% wire)"]
+            project26[label="WireBuyer"]
 
-        node[shape=oval, style=filled]
+            node[shape=oval, style=filled]
 
-        // Note that the "wireSupply" variable in the code represents the
-        // supply from each spool, not your current wire count. Each project's
-        // trigger threshold matches the value set by the project before it, so
-        // effectively they depend on each other.
-        { "1750 ops", "Buy wire 1x" } -> project7
-        { "3000 ops", project7 } -> project8
-        { "7000 ops", "Buy wire 15x" } -> project26
-        { "7500 ops", project8 } -> project9
-        { "12,000 ops", project9 } -> project10
-        { "15,000 ops", "wire >= $125" } -> project10b
-    }
+            // Note that the "wireSupply" variable in the code represents the
+            // supply from each spool, not your current wire count. Each project's
+            // trigger threshold matches the value set by the project before it, so
+            // effectively they depend on each other.
+            { "1750 ops", "Buy wire 1x" } -> project7
+            { "3000 ops", project7 } -> project8
+            { "7000 ops", "Buy wire 15x" } -> project26
+            { "7500 ops", project8 } -> project9
+            { "12,000 ops", project9 } -> project10
+            { "15,000 ops", "wire >= $125" } -> project10b
+        }
 
-    {
-        // MegaClippers
-        node[style=filled, fillcolor=""]
-        project22[label="MegaClippers"]
-        project23[label="Improved MegaClippers\n(+25% megaclip)"]
-        project24[label="Even Better MegaClippers\n(+50% megaclip)"]
-        project25[label="Optimized MegaClippers\n(+100% megaclip)"]
+        {
+            // MegaClippers
+            node[style=filled, fillcolor=""]
+            project22[label="MegaClippers"]
+            project23[label="Improved MegaClippers\n(+25% megaclip)"]
+            project24[label="Even Better MegaClippers\n(+50% megaclip)"]
+            project25[label="Optimized MegaClippers\n(+100% megaclip)"]
 
-        node[shape=oval]
-        { "12,000 ops", "75 AutoClippers" } -> project22
-        { "14,000 ops", project22 } -> project23
-        { "17,000 ops", project23 } -> project24
-        { "19,500 ops", project24 } -> project25
-    }
+            node[shape=oval]
+            { "12,000 ops", "75 AutoClippers" } -> project22
+            { "14,000 ops", project22 } -> project23
+            { "17,000 ops", project23 } -> project24
+            { "19,500 ops", project24 } -> project25
+        }
 
-    {
-        // HypnoDrones
-        node[style=filled, fillcolor=grey20, fontcolor=grey80]
-        project34[label="Hypno Harmonics\n(5x marketing, -1 trust)"]
-        project35[label="Release the HypnoDrones"]
-        project70[label="HypnoDrones"]
+        {
+            // HypnoDrones
+            node[style=filled, fillcolor=grey20, fontcolor=grey80]
+            project34[label="Hypno Harmonics\n(5x marketing, -1 trust)"]
+            project35[label="Release the HypnoDrones"]
+            project70[label="HypnoDrones"]
 
-        node[style=oval]
-        { "100 trust", project70 } -> project35
-        { "70,000 ops", project34 } -> project70
-        { "7500 ops", project12 } -> project34
-    }
+            node[style=oval]
+            { "100 trust", project70 } -> project35
+            { "70,000 ops", project34 } -> project70
+            { "7500 ops", project12 } -> project34
+        }
 
-    {
-        // Megaprojects
-        node[style=filled, fillcolor=mediumorchid]
-        project27[label="Coherent Extrapolated Volition\n(+1 trust, a new era of trust)"]
-        project28[label="Cure for Cancer\n(+10 trust, +.01 stock gain)"]
-        project29[label="World Peace\n(+12 trust, +.01 stock gain)"]
-        project30[label="Global Warming\n(+12 trust, +.01 stock gain)"]
-        project31[label="Male Pattern Baldness\n(+20 trust, +.01 stock gain)"]
-        node[shape=oval]
-        { "20,000 ops", project27 } -> project31
-        { "25,000 ops", project27 } -> project28
-        { "30,000 ops", "15,000 yomi", project27 } -> project29
-        { "50,000 ops", "4,500 yomi", project27 } -> project30
-        { "500 creat", "3,000 yomi", "20,000 ops" } -> project27
-    }
+        {
+            // Megaprojects
+            node[style=filled, fillcolor=mediumorchid]
+            project27[label="Coherent Extrapolated Volition\n(+1 trust, a new era of trust)"]
+            project28[label="Cure for Cancer\n(+10 trust, +.01 stock gain)"]
+            project29[label="World Peace\n(+12 trust, +.01 stock gain)"]
+            project30[label="Global Warming\n(+12 trust, +.01 stock gain)"]
+            project31[label="Male Pattern Baldness\n(+20 trust, +.01 stock gain)"]
+            node[shape=oval]
+            { "20,000 ops", project27 } -> project31
+            { "25,000 ops", project27 } -> project28
+            { "30,000 ops", "15,000 yomi", project27 } -> project29
+            { "50,000 ops", "4,500 yomi", project27 } -> project30
+            { "500 creat", "3,000 yomi", "20,000 ops" } -> project27
+        }
 
-    {
-        // Quantum Computing
-        node[style=filled, fillcolor=grey40, fontcolor=white]
-        project50[label="Quantum Computing"]
-        project51[label="Photonic Chip"]
-        pchip2[label="Photonic Chip (#2)"]
-        pchip3[label="Photonic Chip (#3)"]
-        pchip4[label="Photonic Chip (#4)"]
-        pchip5[label="Photonic Chip (#5)"]
-        pchip6[label="Photonic Chip (#6)"]
-        pchip7[label="Photonic Chip (#7)"]
-        pchip8[label="Photonic Chip (#8)"]
-        pchip9[label="Photonic Chip (#9)"]
-        pchip10[label="Photonic Chip (#10)"]
+        {
+            // Quantum Computing
+            node[style=filled, fillcolor=grey40, fontcolor=white]
+            project50[label="Quantum Computing"]
+            project51[label="Photonic Chip"]
+            pchip2[label="Photonic Chip (#2)"]
+            pchip3[label="Photonic Chip (#3)"]
+            pchip4[label="Photonic Chip (#4)"]
+            pchip5[label="Photonic Chip (#5)"]
+            pchip6[label="Photonic Chip (#6)"]
+            pchip7[label="Photonic Chip (#7)"]
+            pchip8[label="Photonic Chip (#8)"]
+            pchip9[label="Photonic Chip (#9)"]
+            pchip10[label="Photonic Chip (#10)"]
 
-        node[shape=oval]
-        { "10,000 ops", "5 processors" } -> project50
-        { "10,000 ops", project50 } -> project51
-        { "15,000 ops", project51 } -> pchip2
-        { "20,000 ops", pchip2 } -> pchip3
-        { "25,000 ops", pchip3 } -> pchip4
-        { "30,000 ops", pchip4 } -> pchip5
-        { "35,000 ops", pchip5 } -> pchip6
-        { "40,000 ops", pchip6 } -> pchip7
-        { "45,000 ops", pchip7 } -> pchip8
-        { "50,000 ops", pchip8 } -> pchip9
-        { "55,000 ops", pchip9 } -> pchip10
-    }
+            node[shape=oval]
+            { "10,000 ops", "5 processors" } -> project50
+            { "10,000 ops", project50 } -> project51
+            { "15,000 ops", project51 } -> pchip2
+            { "20,000 ops", pchip2 } -> pchip3
+            { "25,000 ops", pchip3 } -> pchip4
+            { "30,000 ops", pchip4 } -> pchip5
+            { "35,000 ops", pchip5 } -> pchip6
+            { "40,000 ops", pchip6 } -> pchip7
+            { "45,000 ops", pchip7 } -> pchip8
+            { "50,000 ops", pchip8 } -> pchip9
+            { "55,000 ops", pchip9 } -> pchip10
+        }
 
-    {
-        // Resets
-        node[style=filled, fillcolor=orange]
-        project2[label="Beg for more wire\n(-1 trust)", rank=sink]
-        project217[label="Quantum Temporal Reversion\n(reset game)", rank=sink]
-        project219[label="Xavier Re-initialization\n(re-allocate trust)", rank=sink]
+        {
+            // Resets
+            node[style=filled, fillcolor=orange]
+            project2[label="Beg for more wire\n(-1 trust)", rank=sink]
+            project217[label="Quantum Temporal Reversion\n(reset game)", rank=sink]
+            project219[label="Xavier Re-initialization\n(re-allocate trust)", rank=sink]
 
-        node[shape=oval]
-        "Out of money\n and clips" -> project2
-        project51 -> "-10,000 ops"
-        { "-10,000 ops" } -> project217
-        { "100,000 creat" } -> project219
-        "500 creat" -> "100,000 creat"
+            node[shape=oval]
+            "Out of money\n and clips" -> project2
+            project51 -> "-10,000 ops"
+            { "-10,000 ops" } -> project217
+            { "100,000 creat" } -> project219
+            "500 creat" -> "100,000 creat"
+        }
+
     }
 
     // --------------------------------------------------
     // Stage 2
     // --------------------------------------------------
 
-    {
-        // HypnoDrones
-        node[style=filled, fillcolor=grey20, fontcolor=grey80]
-        project35[label="Release the HypnoDrones"]
-    }
-    {
-        humanFlag[label="-- Stage 2 --"]
-        { project35 } -> humanFlag
-    }
-    {
-        // Ops targets
-        node[shape=oval, style="", fillcolor=""]
-        s2_25kops[label="25,000 ops"]
-        s2_35kops[label="35,000 ops"]
-        s2_40kops[label="40,000 ops"]
-        s2_45kops[label="45,000 ops"]
+    subgraph stage2 {
 
-        "80,000 ops" ->
-        "85,000 ops" ->
-        "100,000 ops" ->
-        "120,000 ops"
-    }
-    {
-        // Strategic Modeling and Yomi targets
-        node[style=filled, fillcolor=lightblue2]
+        {
+            // HypnoDrones
+            node[style=filled, fillcolor=grey20, fontcolor=grey80]
+            project35[label="Release the HypnoDrones"]
+        }
+        {
+            // Creativity targets
+            node[style=filled, fillcolor=mediumpurple]
+            s2_project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
+        }
+        {
+            humanFlag[label="-- Stage 2 --"]
+            { project35 } -> humanFlag
+        }
+        {
+            // Ops targets
+            node[shape=oval, style="", fillcolor=""]
+            s2_25kops[label="25,000 ops"]
+            s2_35kops[label="35,000 ops"]
+            s2_40kops[label="40,000 ops"]
+            s2_45kops[label="45,000 ops"]
 
-        node[shape=oval]
-        "36,000 yomi"
-        "50,000 yomi"
-    }
-    {
-        // Stage 2 bootstrapping
-        project18[label="Töth Tubule Enfolding\n (Begin building with paperclips)"]
-        project41[label="Nanoscale Wire Production "]
+            "80,000 ops" ->
+            "85,000 ops" ->
+            "100,000 ops" ->
+            "120,000 ops"
+        }
+        {
+            // Strategic Modeling and Yomi targets
+            node[style=filled, fillcolor=lightblue2]
 
-        { s2_project17, humanFlag, s2_45kops } -> project18
-        { project127, s2_35kops } -> project41
-    }
-    {
-        // Power grid
-        project127[label="Power Grid "]
+            node[shape=oval]
+            "36,000 yomi"
+            "50,000 yomi"
+        }
+        {
+            // Stage 2 bootstrapping
+            project18[label="Töth Tubule Enfolding\n (Begin building with paperclips)"]
+            project41[label="Nanoscale Wire Production "]
 
-        node[shape=oval]
-        s2_ultimate_power[label="10,000,000\n MW-seconds"]
-        "30 solar farms"
-    }
-    {
-        { project18, s2_40kops } -> project127
-    }
+            { s2_project17, humanFlag, s2_45kops } -> project18
+            { project127, s2_35kops } -> project41
+        }
+        {
+            // Power grid
+            project127[label="Power Grid "]
 
-    {
-        // Drone targets
-        project43[label="Harvester Drones "]
-        project44[label="Wire Drones "]
+            node[shape=oval]
+            s2_ultimate_power[label="10,000,000\n MW-seconds"]
+            "30 solar farms"
+        }
+        {
+            { project18, s2_40kops } -> project127
+        }
 
-        project110[label="Drone flocking: collision avoidance\n(100x drone perf.)"]
-        project111[label="Drone flocking: alignment\n(1,000x drone perf.)"]
-        project112[label="Drone Flocking: Adversarial Cohesion\n(every drone doubles\n every other drone perf.)"]
+        {
+            // Drone targets
+            project43[label="Harvester Drones "]
+            project44[label="Wire Drones "]
 
-        project126[label="Swarm Computing "]
+            project110[label="Drone flocking: collision avoidance\n(100x drone perf.)"]
+            project111[label="Drone flocking: alignment\n(1,000x drone perf.)"]
+            project112[label="Drone Flocking: Adversarial Cohesion\n(every drone doubles\n every other drone perf.)"]
 
-        node[shape=oval]
+            project126[label="Swarm Computing "]
 
-        // "200 drones" -> "500 drones" -> "5,000 drones" -> "50,000 drones"
+            node[shape=oval]
 
-        { project41, s2_25kops } -> project43
-        { project41, s2_25kops } -> project44
-        { "80,000 ops", "500 drones" } -> project110
-        { "100,000 ops", "5,000 drones" } -> project111
-        { "50,000 yomi", "50,000 drones" } -> project112
-        { "36,000 yomi", "200 drones" } -> project126
-    }
-    {
-        // Factory targets
-        project45[label="Clip Factories "]
-        project100[label="Upgraded Factories\n(100x factory perf.)"]
-        project101[label="Hyperspeed Factories\n(1000x factory perf.)"]
-        project102[label="Self-correcting Supply Chain "]
+            // "200 drones" -> "500 drones" -> "5,000 drones" -> "50,000 drones"
 
-        node[shape=oval]
-        project45 ->
-        "10 factories" ->
-        "20 factories" ->
-        "50 factories"
+            { project41, s2_25kops } -> project43
+            { project41, s2_25kops } -> project44
+            { "80,000 ops", "500 drones" } -> project110
+            { "100,000 ops", "5,000 drones" } -> project111
+            { "50,000 yomi", "50,000 drones" } -> project112
+            { "36,000 yomi", "200 drones" } -> project126
+        }
+        {
+            // Factory targets
+            project45[label="Clip Factories "]
+            project100[label="Upgraded Factories\n(100x factory perf.)"]
+            project101[label="Hyperspeed Factories\n(1000x factory perf.)"]
+            project102[label="Self-correcting Supply Chain "]
 
-        { project43, project44, s2_35kops } -> project45
-        { "80,000 ops", "10 factories" } -> project100
-        { "85,000 ops", "20 factories" } -> project101
-        { "50 factories" } -> project102
-    }
+            node[shape=oval]
+            project45 ->
+            "10 factories" ->
+            "20 factories" ->
+            "50 factories"
 
-    {
-        node[style=filled, fillcolor=grey20, fontcolor=grey80]
-        project46[label="Space Exploration "]
+            { project43, project44, s2_35kops } -> project45
+            { "80,000 ops", "10 factories" } -> project100
+            { "85,000 ops", "20 factories" } -> project101
+            { "50 factories" } -> project102
+        }
 
-        node[shape=oval]
-        { "120,000 ops", s2_ultimate_power, "Harvest all\n available matter" } -> project46
-    }
+        {
+            node[style=filled, fillcolor=grey20, fontcolor=grey80]
+            project46[label="Space Exploration "]
 
-    {
-        // Creativity targets
-        node[style=filled, fillcolor=mediumpurple]
-        s2_project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
-        project125[label="Momentum "]
+            node[shape=oval]
+            { "120,000 ops", s2_ultimate_power, "Harvest all\n available matter" } -> project46
+        }
 
-        node[shape=oval]
-        { "20,000 creat", "30 solar farms" } -> project125
-    }
-    {
-        // Clips targets
-        node[fillcolor=lightsteelblue]
-        node[shape=oval]
-        // python3 upc_prices.py
+        {
+            // Creativity targets
+            node[style=filled, fillcolor=mediumpurple]
+            project125[label="Momentum "]
 
-        "2 trillion clips" -> "200 drones"
-        "10.8 trillion clips" -> "30 solar farms"
-        "38.5 trillion clips" -> "500 drones"
-        "2.2 quadrillion clips" -> "10 factories"
-        "68 quadrillion clips" -> "5,000 drones"
-        "705.7 quadrillion clips" -> "20 factories"
-        "120.9 quintillion clips" -> "50,000 drones"
-        "714.8 quintillion clips" -> "50 factories"
-        "1 sextillion clips" -> project102
-        "5 octillion clips" -> project46
-        //
-        project45 ->
-        "2 trillion clips" ->
-        "10.8 trillion clips" ->
-        "38.5 trillion clips" ->
-        "2.2 quadrillion clips" ->
-        "68 quadrillion clips" ->
-        "705.7 quadrillion clips" ->
-        "120.9 quintillion clips" ->
-        "714.8 quintillion clips" ->
-        "1 sextillion clips" ->
-        "5 octillion clips"
+            node[shape=oval]
+            { "20,000 creat", "30 solar farms" } -> project125
+        }
+        {
+            // Clips targets
+            node[fillcolor=lightsteelblue]
+            node[shape=oval]
+            // python3 upc_prices.py
+
+            "2 trillion clips" -> "200 drones"
+            "10.8 trillion clips" -> "30 solar farms"
+            "38.5 trillion clips" -> "500 drones"
+            "2.2 quadrillion clips" -> "10 factories"
+            "68 quadrillion clips" -> "5,000 drones"
+            "705.7 quadrillion clips" -> "20 factories"
+            "120.9 quintillion clips" -> "50,000 drones"
+            "714.8 quintillion clips" -> "50 factories"
+            "1 sextillion clips" -> project102
+            "5 octillion clips" -> project46
+            //
+            project45 ->
+            "2 trillion clips" ->
+            "10.8 trillion clips" ->
+            "38.5 trillion clips" ->
+            "2.2 quadrillion clips" ->
+            "68 quadrillion clips" ->
+            "705.7 quadrillion clips" ->
+            "120.9 quintillion clips" ->
+            "714.8 quintillion clips" ->
+            "1 sextillion clips" ->
+            "5 octillion clips"
+
+        }
 
     }
 }
