@@ -144,7 +144,7 @@ digraph {
         { "10,000 ops", "8 trust" } -> project21
         { "$1 M" } -> project37
         { "500 ops" } -> project42
-        { "$500,000", "85 trust", "101 M clips" } -> project40
+        { "$500,000", "85 trust", "101 million clips" } -> project40
         { "2x previous\ngift $$", project40 } -> project40b
     }
 
@@ -267,8 +267,15 @@ digraph {
     // Stage 2
     // --------------------------------------------------
 
-    humanFlag[label="-- Stage 2 --"]
-
+    {
+        // HypnoDrones
+        node[style=filled, fillcolor=grey20, fontcolor=grey80]
+        project35[label="Release the HypnoDrones"]
+    }
+    {
+        humanFlag[label="-- Stage 2 --"]
+        { project35 } -> humanFlag
+    }
     {
         // Ops targets
         node[shape=oval, style="", fillcolor=""]
@@ -283,13 +290,6 @@ digraph {
         "120,000 ops"
     }
     {
-        // Creativity targets
-        node[style=filled, fillcolor=mediumpurple]
-
-        node[shape=oval]
-        "20,000 creat"
-    }
-    {
         // Strategic Modeling and Yomi targets
         node[style=filled, fillcolor=lightblue2]
 
@@ -298,16 +298,12 @@ digraph {
         "50,000 yomi"
     }
     {
-        node[style=filled, fillcolor=mediumpurple]
-        s2_project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
-    }
-
-    {
+        // Stage 2 bootstrapping
         project18[label="Töth Tubule Enfolding\n (Begin building with paperclips)"]
         project41[label="Nanoscale Wire Production "]
-        project43[label="Harvester Drones "]
-        project44[label="Wire Drones "]
-        project45[label="Clip Factories "]
+
+        { s2_project17, humanFlag, s2_45kops } -> project18
+        { project127, s2_35kops } -> project41
     }
     {
         // Power grid
@@ -318,15 +314,34 @@ digraph {
         "30 solar farms"
     }
     {
-        { project35 } -> humanFlag
-        { s2_project17, humanFlag, s2_45kops } -> project18
-        { project127, s2_35kops } -> project41
-        { project41, s2_25kops } -> project43
-        { project41, s2_25kops } -> project44
-        { project43, project44, s2_35kops } -> project45
         { project18, s2_40kops } -> project127
     }
+
     {
+        // Drone targets
+        project43[label="Harvester Drones "]
+        project44[label="Wire Drones "]
+
+        project110[label="Drone flocking: collision avoidance\n(100x drone perf.)"]
+        project111[label="Drone flocking: alignment\n(1,000x drone perf.)"]
+        project112[label="Drone Flocking: Adversarial Cohesion\n(every drone doubles\n every other drone perf.)"]
+
+        project126[label="Swarm Computing "]
+
+        node[shape=oval]
+
+        // "200 drones" -> "500 drones" -> "5,000 drones" -> "50,000 drones"
+
+        { project41, s2_25kops } -> project43
+        { project41, s2_25kops } -> project44
+        { "80,000 ops", "500 drones" } -> project110
+        { "100,000 ops", "5,000 drones" } -> project111
+        { "50,000 yomi", "50,000 drones" } -> project112
+        { "36,000 yomi", "200 drones" } -> project126
+    }
+    {
+        // Factory targets
+        project45[label="Clip Factories "]
         project100[label="Upgraded Factories\n(100x factory perf.)"]
         project101[label="Hyperspeed Factories\n(1000x factory perf.)"]
         project102[label="Self-correcting Supply Chain "]
@@ -337,30 +352,14 @@ digraph {
         "20 factories" ->
         "50 factories"
 
+        { project43, project44, s2_35kops } -> project45
         { "80,000 ops", "10 factories" } -> project100
         { "85,000 ops", "20 factories" } -> project101
         { "50 factories" } -> project102
     }
 
     {
-        project110[label="Drone flocking: collision avoidance "]
-        project111[label="Drone flocking: alignment "]
-        project112[label="Drone Flocking: Adversarial Cohesion "]
-
-        project126[label="Swarm Computing "]
-
-        node[shape=oval]
-
-        { "80,000 ops", "500 drones" } -> project110
-        { "100,000 ops", "5,000 drones" } -> project111
-        { "50,000 yomi", "50,000 drones" } -> project112
-        { "36,000 yomi", "200 drones" } -> project126
-    }
-    {
-        project125[label="Momentum "]
-        { "20,000 creat", "30 solar farms" } -> project125
-    }
-    {
+        node[style=filled, fillcolor=grey20, fontcolor=grey80]
         project46[label="Space Exploration "]
 
         node[shape=oval]
@@ -368,7 +367,17 @@ digraph {
     }
 
     {
-        node[style=filled, fillcolor=""]
+        // Creativity targets
+        node[style=filled, fillcolor=mediumpurple]
+        s2_project17[label="The Toth Sausage Conjecture\n(+1 trust)"]
+        project125[label="Momentum "]
+
+        node[shape=oval]
+        { "20,000 creat", "30 solar farms" } -> project125
+    }
+    {
+        // Clips targets
+        node[fillcolor=lightsteelblue]
         node[shape=oval]
         // python3 upc_prices.py
 
