@@ -15,19 +15,7 @@ digraph {
         s2_45kops[label="45,000 ops", OPS(), TARGET()]
     }
 
-    subgraph cluster_theory_of_mind {
-        // Repeating targets: Theory of Mind and Auto-Tourney
-        label="Theory of Mind / Autotourney"
-        s2_25k_creat[label="25,000 creat", CREAT(), TARGET()]
-        s2_50k_creat[label="50,000 creat", CREAT(), TARGET()]
-        s2_all_strats[label="All strats unlocked", YOMI(), TARGET()]
-        s2_project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
-        s2_project118[label="AutoTourney ", YOMI(), PROJECT()]
-
-        s2_25k_creat -> s2_50k_creat
-        { s2_25k_creat, s2_all_strats } -> s2_project119
-        { s2_50k_creat } -> s2_project118
-    }
+    THEORY_OF_MIND_CLUSTER(s2)
 
     {
         node[OPS(), TARGET()]

@@ -56,7 +56,7 @@ paperclips-diagram-combined-stage23.dot: \
 	echo "    project46 -> s3_project46" >> $@
 	echo "}" >> $@
 
-%.dot: %.dot.m4
+%.dot: %.dot.m4 common.m4
 	m4 common.m4 $< > $@
 
 %.pdf: %.tex

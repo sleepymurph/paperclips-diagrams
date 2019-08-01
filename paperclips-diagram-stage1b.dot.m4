@@ -9,19 +9,7 @@ digraph {
         s1b_project34[label="Hypno Harmonics\n(5x marketing, -1 trust)", DARK(), PROJECT()]
     }
 
-    subgraph cluster_theory_of_mind {
-        // Repeating targets: Theory of Mind and Auto-Tourney
-        label="Theory of Mind / Autotourney"
-        s1_25k_creat[label="25,000 creat", CREAT(), TARGET()]
-        s1_50k_creat[label="50,000 creat", CREAT(), TARGET()]
-        s1_all_strats[label="All strats unlocked", YOMI(), TARGET()]
-        s1_project119[label="Theory of Mind\n(Double tournament\n cost and reward)", YOMI(), PROJECT()]
-        s1_project118[label="AutoTourney ", YOMI(), PROJECT()]
-
-        s1_25k_creat -> s1_50k_creat
-        { s1_25k_creat, s1_all_strats } -> s1_project119
-        { s1_50k_creat } -> s1_project118
-    }
+    THEORY_OF_MIND_CLUSTER(s1)
 
     {
         // Ops targets
