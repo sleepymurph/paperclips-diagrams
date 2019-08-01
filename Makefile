@@ -1,5 +1,6 @@
-.PHONY: vector raster all clean pdfs svgs pngs pngs_alpha dots
+.PHONY: default vector raster all clean pdfs svgs pngs pngs_alpha dots
 
+default: vector sample.png
 vector: pdfs svgs
 raster: pngs pngs_alpha
 all: vector raster
@@ -88,3 +89,8 @@ png/%.png: %.png
 png-alpha/%.alpha.png: %.alpha.png
 	mkdir -p png-alpha
 	cp $< png-alpha/
+
+sample_src:= paperclips-diagram-stage1b.png
+.INTERMEDIATE: $(sample_src)
+sample.png: $(sample_src)
+	convert $< -gravity SouthWest -crop 800x600+0+0 sample.png
