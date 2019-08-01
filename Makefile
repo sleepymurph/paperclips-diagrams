@@ -8,9 +8,9 @@ clean:
 	git clean -fXd
 
 dots:= $(basename $(wildcard *.dot.m4)) \
-    paperclips-diagram-all.dot \
-    paperclips-diagram-stage1-combined.dot \
-    paperclips-diagram-stage2plus3.dot \
+    paperclips-diagram-combined-all.dot \
+    paperclips-diagram-combined-stage1.dot \
+    paperclips-diagram-combined-stage23.dot \
 
 pdfs: $(addprefix pdf/, $(addsuffix .pdf, $(basename $(dots))))
 svgs: $(addprefix svg/, $(addsuffix .svg, $(basename $(dots))))
@@ -22,29 +22,29 @@ paperclips-diagram-stage2.dot: paperclips-diagram-stage2-include.dot
 paperclips-diagram-stage2-include.dot: upc_prices.py
 	python3 upc_prices.py > $@
 
-paperclips-diagram-all.dot: \
-    paperclips-diagram-stage1-combined.dot \
+paperclips-diagram-combined-all.dot: \
+    paperclips-diagram-combined-stage1.dot \
     paperclips-diagram-stage2.dot \
     paperclips-diagram-stage3.dot \
 
 	echo -n "" > $@
 	echo "digraph {" >> $@
-	sed "s/digraph/subgraph cluster_stage1/" paperclips-diagram-stage1-combined.dot >> $@
+	sed "s/digraph/subgraph cluster_stage1/" paperclips-diagram-combined-stage1.dot >> $@
 	sed "s/digraph/subgraph cluster_stage2/" paperclips-diagram-stage2.dot >> $@
 	sed "s/digraph/subgraph cluster_stage3/" paperclips-diagram-stage3.dot >> $@
 	echo "    project35 -> s2_project35" >> $@
 	echo "    project46 -> s3_project46" >> $@
 	echo "}" >> $@
 
-paperclips-diagram-stage1-combined.dot: \
-    paperclips-diagram-stage1-part1.dot \
-    paperclips-diagram-stage1-part2.dot \
+paperclips-diagram-combined-stage1.dot: \
+    paperclips-diagram-stage1a.dot \
+    paperclips-diagram-stage1b.dot \
 
 	echo -n "" > $@
-	sed "/rank=sink/d; /^}/d" paperclips-diagram-stage1-part1.dot >> $@
-	sed "/rank=source/d; /^digraph/d" paperclips-diagram-stage1-part2.dot >> $@
+	sed "/rank=sink/d; /^}/d" paperclips-diagram-stage1a.dot >> $@
+	sed "/rank=source/d; /^digraph/d" paperclips-diagram-stage1b.dot >> $@
 
-paperclips-diagram-stage2plus3.dot: \
+paperclips-diagram-combined-stage23.dot: \
     paperclips-diagram-stage2.dot \
     paperclips-diagram-stage3.dot \
 
