@@ -1,20 +1,21 @@
-.PHONY: default all clean pdfs svgs pngs pngs_alpha dots
+.PHONY: vector raster all clean pdfs svgs pngs pngs_alpha dots
 
-default: pdfs svgs
-all: pdfs svgs pngs pngs_alpha
+vector: pdfs svgs
+raster: pngs pngs_alpha
+all: vector raster
 
 clean:
-	git clean -fX
+	git clean -fXd
 
 dots:= $(basename $(wildcard *.dot.m4)) \
     paperclips-diagram-all.dot \
     paperclips-diagram-stage1-combined.dot \
     paperclips-diagram-stage2plus3.dot \
 
-pdfs: $(addsuffix .pdf, $(basename $(dots)))
-svgs: $(addsuffix .svg, $(basename $(dots)))
-pngs: $(addsuffix .png, $(basename $(dots)))
-pngs_alpha: $(addsuffix .alpha.png, $(basename $(dots)))
+pdfs: $(addprefix pdf/, $(addsuffix .pdf, $(basename $(dots))))
+svgs: $(addprefix svg/, $(addsuffix .svg, $(basename $(dots))))
+pngs: $(addprefix png/, $(addsuffix .png, $(basename $(dots))))
+pngs_alpha: $(addprefix png-alpha/, $(addsuffix .alpha.png, $(basename $(dots))))
 
 paperclips-diagram-stage2.dot: paperclips-diagram-stage2-include.dot
 
@@ -71,3 +72,19 @@ paperclips-diagram-stage2plus3.dot: \
 
 %.alpha.png: %.png
 	convert -fuzz 10% -transparent white $< $@
+
+pdf/%.pdf: %.pdf
+	mkdir -p pdf
+	cp $< pdf/
+
+svg/%.svg: %.svg
+	mkdir -p svg
+	cp $< svg/
+
+png/%.png: %.png
+	mkdir -p png
+	cp $< png/
+
+png-alpha/%.alpha.png: %.alpha.png
+	mkdir -p png-alpha
+	cp $< png-alpha/
