@@ -10,9 +10,9 @@ digraph {
         s3_100k_ops[label="100,000 ops", OPS(), TARGET()]
     }
 
-    {
+    subgraph cluster_theory_of_mind {
         // Repeating targets: Theory of Mind and Auto-Tourney
-        s3_90_trust[label="90 trust", OPS(), TARGET()]
+        label="Theory of Mind / Autotourney"
         s3_25k_creat[label="25,000 creat", CREAT(), TARGET()]
         s3_50k_creat[label="50,000 creat", CREAT(), TARGET()]
         s3_all_strats[label="All strats unlocked", YOMI(), TARGET()]
@@ -21,7 +21,7 @@ digraph {
 
         s3_25k_creat -> s3_50k_creat
         { s3_25k_creat, s3_all_strats } -> s3_project119
-        { s3_50k_creat, s3_90_trust } -> s3_project118
+        { s3_50k_creat } -> s3_project118
     }
 
     {
@@ -49,7 +49,7 @@ digraph {
     {
         node[CREAT(), TARGET()]
 
-        s3_50k_creat ->
+        // s3_50k_creat ->
         "175,000 creat" ->
         "225,000 creat" ->
         "300,000 creat" ->
@@ -76,7 +76,7 @@ digraph {
     // Strategic Modeling and Yomi
 
     project128[label="Strategic Attachment\n (Gain bonus yomi\n for winning strats)", YOMI(), PROJECT()]
-    { s3_project46, "175,000 creat", s3_all_strats, high_trust_cost } -> project128
+    { /*s3_project46, s3_all_strats,*/ "175,000 creat", high_trust_cost } -> project128
 
     {
         node[CLIPS(), TARGET()]

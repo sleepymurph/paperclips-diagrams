@@ -15,9 +15,9 @@ digraph {
         s2_45kops[label="45,000 ops", OPS(), TARGET()]
     }
 
-    {
+    subgraph cluster_theory_of_mind {
         // Repeating targets: Theory of Mind and Auto-Tourney
-        s2_90_trust[label="90 trust", OPS(), TARGET()]
+        label="Theory of Mind / Autotourney"
         s2_25k_creat[label="25,000 creat", CREAT(), TARGET()]
         s2_50k_creat[label="50,000 creat", CREAT(), TARGET()]
         s2_all_strats[label="All strats unlocked", YOMI(), TARGET()]
@@ -26,7 +26,7 @@ digraph {
 
         s2_25k_creat -> s2_50k_creat
         { s2_25k_creat, s2_all_strats } -> s2_project119
-        { s2_50k_creat, s2_90_trust } -> s2_project118
+        { s2_50k_creat } -> s2_project118
     }
 
     {
@@ -45,7 +45,7 @@ digraph {
     project18[label="Töth Tubule Enfolding\n(Begin building with paperclips)", CREAT(), PROJECT()]
     { s2_project17, s2_project35, s2_45kops } -> project18
 
-    "20,000 creat" -> s2_25k_creat
+    // "20,000 creat" -> s2_25k_creat
 
     {
         // Strategic Modeling and Yomi targets
