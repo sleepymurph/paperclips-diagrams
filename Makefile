@@ -90,7 +90,7 @@ png-alpha/%.alpha.png: %.alpha.png
 	mkdir -p png-alpha
 	cp $< png-alpha/
 
-sample_src:= paperclips-diagram-stage1b.png
+sample_src:= paperclips-diagram-stage1a.png
 .INTERMEDIATE: $(sample_src)
 sample.png: $(sample_src)
-	convert $< -gravity SouthWest -crop 800x600+0+0 sample.png
+	convert $< -gravity NorthEast -crop 800x600+0+0 -resize 400x300 sample.png
