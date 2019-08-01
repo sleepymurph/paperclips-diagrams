@@ -50,7 +50,6 @@ digraph {
         node[CREAT(), TARGET()]
 
         s3_50k_creat ->
-        "125,000 creat" ->
         "175,000 creat" ->
         "225,000 creat" ->
         "300,000 creat" ->
@@ -59,6 +58,7 @@ digraph {
         threnody_creat[label="50,000 creat"]
         threnody_creat2[label="prev. creat\n +10,000"]
 
+        "125,000 creat"
         "1,000,000 creat" -> project218
     }
 
@@ -81,13 +81,14 @@ digraph {
     {
         node[CLIPS(), TARGET()]
         "50 nonillion clips"
+        // "29.9 septendecillion clips"
     }
 
     {
         node[COMBAT(), TARGET()]
         hazard_lost_100[label="100 probes\n lost to hazards"]
         combat_lost_1[label="Any probes\n lost in combat"]
-        combat_lost_10m[label="10 million\n probes lost\n to combat"]
+        combat_lost_10m[label="10 million\n probes lost\n in combat"]
         combat_lost_1 -> combat_lost_10m
     }
 
@@ -120,6 +121,7 @@ digraph {
     { "200,000 ops", "30,000 yomi", project121 } -> project134
 
     universal_paperclips[label="Universal\nPaperclips", DARK(), TARGET()]
+    // { "29.9 septendecillion clips" } -> universal_paperclips
 
     project200[label="The Universe Next Door ", DARK(), PROJECT()]
     { "300,000 ops", universal_paperclips } -> project200
