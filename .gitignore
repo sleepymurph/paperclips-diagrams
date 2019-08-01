@@ -1,8 +1,8 @@
 *.aux
 *.log
-*.pdf
+# *.pdf
 *.png
-*.svg
+# *.svg
 
 # *.dot generated from .dot.m4
 *.dot
